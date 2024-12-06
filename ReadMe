@@ -1,0 +1,23 @@
+frontend:-
+npm create vite@latest
+and others setup according to rule
+npm i react-router-dom
+npm i axios
+npm i react-toastify
+
+
+backend:-s
+npm init -y
+npm i express
+npm i nodemon
+npm i mongoose
+npm i dotenv
+npm i bcryptjs
+npm i jsonwebtoken
+npm i zod(used for the form validation)
+npm i cors
+
+
+
+shortcuts:-
+ctrl+b

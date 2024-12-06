@@ -1,0 +1,920 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Urbanist, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    color-scheme: light dark;
+  }
+  
+  :root {
+    --bg-color: #f4f3ff;
+    --btn-color: #646cff;
+    --dark-color: #242424;
+    --helper-color: #99b9ff;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  /*? base style */
+  
+  body {
+    margin: 0;
+    /* display: flex;
+    place-items: center; */
+    /* min-width: 32rem; */
+    min-height: 100vh;
+  }
+  
+   /*?  Help me reach 1 Million subs 👉 https://youtube.com/thapatechnical */
+  
+  h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    font-weight: bold;
+  }
+  
+  p,
+  li,
+  label,
+  input,
+  textarea {
+    font-size: 1.8rem;
+    line-height: 1.56;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.06rem;
+  }
+  
+  a {
+    font-weight: 500;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    color: var(--btn-color);
+    text-decoration: inherit;
+  }
+  
+  li {
+    list-style: none;
+  }
+  
+  /*? layout Rule  */
+  
+  .container {
+    max-width: 140rem;
+    padding: 4rem 2.4rem;
+    margin: 0 auto;
+  }
+  
+  .grid {
+    display: grid;
+    gap: 6.4rem;
+  }
+  
+  .grid-two-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .grid-four-cols {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /*? Module Rules / Reusable */
+  button {
+    text-transform: capitalize;
+    padding: 1rem 2.2rem;
+    font-size: 1.7rem;
+    font-weight: 500;
+    background-color: var(--btn-color);
+    border-radius: 0.8rem;
+    -webkit-border-radius: 0.8rem;
+    -moz-border-radius: 0.8rem;
+    -ms-border-radius: 0.8rem;
+    -o-border-radius: 0.8rem;
+    border: 0.1rem solid transparent;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+    transition: border-color 0.3s;
+    -webkit-transition: border-color 0.3s;
+    -moz-transition: border-color 0.3s;
+    -ms-transition: border-color 0.3s;
+    -o-transition: border-color 0.3s;
+  }
+  
+  .secondary-btn {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 0.2rem var(--btn-color);
+    margin-left: 3.2rem;
+  }
+  
+  /***** Hero Section *****/
+  
+  .section-hero {
+    & .grid {
+      align-items: center;
+    }
+  
+    .hero-content {
+      & p {
+        margin: 2.4rem 0 4.8rem 0;
+        &:first-child {
+          margin: 0 0 1.2rem 0;
+        }
+      }
+    }
+  
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      & img {
+        width: 70%;
+        height: auto;
+      }
+    }
+  }
+  
+  /***** End Hero  *****/
+  
+  .section-analytics {
+    margin: 9.6rem 0;
+  }
+  
+  .section-analytics .container {
+    background-color: var(--bg-color);
+    border-radius: 1rem;
+  }
+  
+  .section-analytics .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    color: var(--dark-color);
+  }
+  
+  .section-analytics .div1 {
+    text-align: center;
+    border-right: 0.2rem solid var(--dark-color);
+    padding: 2rem 1rem; /* Add padding for spacing */
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Align items vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+  }
+  
+  .section-analytics .div1:last-child {
+    border-right: none; /* Remove border for the last item */
+  }
+  
+  .section-analytics .div1 h2 {
+    font-size: 4.8rem;
+    margin: 0; /* Remove default margin for alignment */
+  }
+  
+  .section-analytics .div1 p {
+    text-transform: capitalize;
+    margin: 0; /* Remove default margin for alignment */
+  }
+  
+  /***** End analytics Section *****/
+
+
+  /* Navbar.css */
+  header {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    backdrop-filter: blur(10px); /* Adds a blur effect to the background */
+    color: white;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Keeps the navbar on top */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5px 20px;
+  }
+  
+  .logo-brand a {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .logo-brand a:hover {
+    transform: scale(1.5);
+    color: #ffd700;
+  }
+  
+  nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    position: relative;
+  }
+  
+  nav ul li a {
+    font-size: 2rem;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+  
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: #ffd700;
+    transition: width 0.3s ease;
+  }
+  
+  nav ul li a:hover::after {
+    width: 100%;
+  }
+  
+  nav ul li a.active {
+    color: #ffd700;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      gap: 15px;
+      text-align: center;
+    }
+  }
+  
+  /* footer */
+  .footer {
+    padding: 20px 0;
+    margin-top: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    font-size: 2rem;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+
+
+  /* contact form */
+  /* General Styling */
+
+
+.section-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  background-color: #f4f4fc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.grid-two-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Hero Image */
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+form label {
+  font-weight: bold;
+  color: #2a2a72;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #f9f9f9;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #2a2a72;
+  outline: none;
+}
+
+form button {
+  background-color: #2a2a72;
+  color: white;
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #1e1e5a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+
+  form {
+    gap: 1rem;
+  }
+}
+
+
+/* about page.. */
+.about-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #333;
+}
+
+header p {
+  font-size: 1.1rem;
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 0.5rem;
+  color: #4caf50;
+}
+
+.about-text p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.developers-section h2 {
+  font-size: 2rem;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 0.5rem;
+  color: #4caf50;
+  margin-bottom: 1rem;
+}
+
+.developer-list {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.developer-card {
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.developer-card:hover {
+  transform: translateY(-10px);
+}
+
+.developer-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.developer-card h3 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.developer-card p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* contact + map */
+/* Section Styling */
+.section-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.grid-two-cols {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.hero-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: rem;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+form input,
+form textarea {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+form textarea {
+    resize: none;
+}
+
+form button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+/* Map Section */
+.map-section {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Set desired height for the map */
+    margin-top: 2rem;
+}
+
+.map-section iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content {
+        padding: 1.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    form button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .map-section {
+        height: 40vh;
+    }
+}
+/* error page */
+/* General Styling */
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #4facfe, #00f2fe);
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  padding: 20px;
+}
+
+.error-content {
+  text-align: center;
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 100%;
+}
+
+.error-title {
+  font-size: 120px;
+  font-weight: bold;
+  color: #ff6b6b;
+  margin-bottom: 10px;
+}
+
+.error-subtitle {
+  font-size: 24px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.error-message {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.error-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.error-button {
+  text-decoration: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.error-button:hover {
+  background-color: #0056b3;
+}
+
+.error-button.secondary {
+  background-color: #6c757d;
+}
+
+.error-button.secondary:hover {
+  background-color: #495057;
+}
+
+
+/* services css  */
+/* General Styling */
+.section-container {
+  padding: 2rem 0;
+  background-color: #f9f9f9;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.main-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.grid.grid-three-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Card Styling */
+.card {
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-details {
+  padding: 1.5rem;
+}
+
+.card-details .grid.grid-two-cols {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.card-details h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.card-details p {
+  font-size: 1.3rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main-heading {
+    font-size: 2rem;
+  }
+  .grid.grid-three-cols {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+
+/* admin setion css */
+
+/* users */
+
+/* General Section Styling */
+.admin-users-section {
+  font-family: 'Arial', sans-serif;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.admin-users-section h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Container Styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Table Styling */
+.admin-users table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.admin-users th,
+.admin-users td {
+  text-align: left;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+.admin-users th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.admin-users tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.admin-users tr:hover {
+  background-color: #eafaf1;
+}
+
+.admin-users td button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-users td button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .admin-users table {
+    font-size: 14px;
+  }
+
+  .admin-users th,
+  .admin-users td {
+    padding: 8px 10px;
+  }
+
+  .admin-users td button {
+    padding: 6px 10px;
+  }
+}
+
+
+/* css for contact-admin page */
+/* AdminContact.css */
+.admin-contact-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.admin-contact-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.admin-contact-table-container {
+  overflow-x: auto; /* Ensure responsiveness for smaller screens */
+}
+
+.admin-contact-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.admin-contact-table th,
+.admin-contact-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.admin-contact-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.admin-contact-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.admin-contact-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.delete-btn {
+  padding: 5px 10px;
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
