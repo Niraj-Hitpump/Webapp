@@ -4,12 +4,13 @@ import { useAuth } from "../store/auth";
 import { toast } from "react-toastify"; // Ensure this is properly imported and configured
 
 const AdminContact = () => {
+  const {url}=useAuth();
   const [contact, setContact] = useState([]);
   const { authorizationToken } = useAuth();
 
   const getContactData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/admin/contacts", {
+      const response = await axios.get(`${url}/api/admin/contacts`, {
         headers: {
           Authorization: authorizationToken,
         },

@@ -7,12 +7,13 @@ import { toast } from "react-toastify";
 // import { Link } from "react-router-dom";
 
 const AdminUsers = () => {
+  const{url}=useAuth();
   const [users, setUsers] = useState([]);
   const { authorizationToken } = useAuth();
 
   const getAllUsersData = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/admin/users", {
+      const response = await axios.get(`${url}/api/admin/users`, {
         headers: {
           Authorization: authorizationToken,
         },

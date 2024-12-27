@@ -1,10 +1,11 @@
 import { useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../store/auth";
+import { AuthContext, useAuth } from "../store/auth";
 import { toast } from "react-toastify";
 
 const Login = () => {
+    const {url}=useAuth();
     const [user, setUser] = useState({
         email: "",
         password: "",
@@ -31,7 +32,7 @@ const Login = () => {
         }
         try {
             const response = await axios.post(
-                "http://localhost:4000/api/auth/login",
+                `${url}/api/auth/login`,
                 user,
                 {
                     withCredentials: true,

@@ -128,6 +128,7 @@ const defaultContactFormData={
 }
 
 const Contact = () => {
+    const {url}=useAuth();
     const [user, setUser] = useState(defaultContactFormData);
 
     const { user: authData } = useAuth(); // Access user data from AuthContext
@@ -158,7 +159,7 @@ const Contact = () => {
         e.preventDefault();
     
         try {
-            const response = await axios.post("http://localhost:4000/api/form/contact", user, {
+            const response = await axios.post(`${url}/api/form/contact`, user, {
                 headers: {
                     "Content-Type": "application/json",
                 },

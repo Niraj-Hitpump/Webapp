@@ -2,8 +2,10 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import {toast} from 'react-toastify'
+import { useAuth } from "../store/auth";
 
 const Register = () => {
+    const{url}=useAuth();
     const [user, setUser] = useState({
         username: "",
         email: "",
@@ -23,7 +25,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:4000/api/auth/register', user, {
+            const response = await axios.post(`${url}/api/auth/register`, user, {
                 withCredentials: true,
             });
             console.log("Response Data:", response.data);

@@ -5,6 +5,7 @@ export const AuthContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const AuthProvider = ({ children }) => {
+  const url="http://localhost:4000";
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState(null);
   const [services, setServices] = useState([]); // Initialized to an empty array
@@ -25,7 +26,7 @@ export const AuthProvider = ({ children }) => {
 
   const userAuthentication = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/auth/user", {
+      const response = await axios.get(`${url}/api/data/user`, {
         headers: {
           Authorization: authorizationToken,
         },
@@ -43,7 +44,7 @@ export const AuthProvider = ({ children }) => {
   const getServices = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/data/service"
+        `${url}/api/data/services`,
       );
       if (response.status === 200) {
         console.log("Services data fetched successfully:", response.data);
@@ -63,7 +64,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn, storeTokenInLS, logoutUser, user, services,authorizationToken }}
+      value={{ isLoggedIn, storeTokenInLS, logoutUser, user, services,authorizationToken,url }}
     >
       {children}
     </AuthContext.Provider>
