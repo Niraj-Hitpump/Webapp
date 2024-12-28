@@ -5,7 +5,7 @@ export const AuthContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const AuthProvider = ({ children }) => {
-  const url="http://localhost:4000";
+  const url="https://webappbackend.vercel.app/";
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState(null);
   const [services, setServices] = useState([]); // Initialized to an empty array
