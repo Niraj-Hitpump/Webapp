@@ -9,7 +9,7 @@ import Navbar from "./Components/Navbar.jsx";
 import Footer from "./Components/Footer.jsx";
 import Error from "./Pages/Error.jsx";
 import Logout from "./Pages/Logout.jsx";
-import AdminLayout from "./Components/layouts/adminLayout.jsx";
+import AdminLayout from "./Components/layouts/AdminLayout.jsx";
 import AdminUsers from "./Pages/AdminUsers.jsx";
 import AdminContact from "./Pages/AdminContact.jsx";
 import AdminServices from "./Pages/AdminServices.jsx";
