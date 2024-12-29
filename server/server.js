@@ -9,22 +9,22 @@ import connectDb from "./utils/db.js";
 import dotenv from "dotenv";
 import cors from "cors";
 
-
 dotenv.config();
 
 const app = express();
 
 // Middleware
-const corsOptions={
-    origin:"http://localhost:5173",
-    methods:"GET,POST,PUT,DELETE",
+const corsOptions = {
+    origin: process.env.NODE_ENV === 'production' 
+        ? process.env.FRONTEND_URL // Frontend URL for production (e.g., Vercel)
+        : 'http://localhost:5173',  // Local frontend URL for development
+    methods: "GET,POST,PUT,DELETE",
     allowedHeaders: ['Authorization', 'Content-Type'],
-    credentials:true,
-}
+    credentials: true,
+};
+
 app.use(cors(corsOptions));
 app.use(express.json());
-
-
 
 // API Routes
 app.use("/api/auth", authRoutes);

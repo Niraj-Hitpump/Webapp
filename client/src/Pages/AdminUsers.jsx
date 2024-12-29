@@ -27,19 +27,25 @@ const AdminUsers = () => {
 
   // delete the user on the delete button
   const deleteUser = async (id) => {
+    console.log(`Attempting to delete user with ID: ${id}`); // Log the ID
     try {
-      const response = await axios.delete(`http://localhost:4000/api/admin/users/delete/${id}`, {
+      const deleteUrl = `${url}/api/admin/users/${id}`;
+      console.log(`Deleting user with URL: ${deleteUrl}`); // Log the full URL
+      const response = await axios.delete(deleteUrl, {
         headers: {
           Authorization: authorizationToken,
         },
       });
-      toast.success("User deleted successfully", response.data); // Logging the response data
-      // Optionally fetch users again or remove the deleted user from state
+      toast.success("User deleted successfully");
+      // Remove the deleted user from state
       setUsers((prevUsers) => prevUsers.filter((user) => user._id !== id));
     } catch (error) {
-      toast.error("Error deleting user:", error);
+      console.error("Error deleting user:", error);
+      const errorMessage = error.response?.data?.message || "Failed to delete user.";
+      toast.error(errorMessage);
     }
   };
+  
     
 
   useEffect(() => {

@@ -5,7 +5,7 @@ export const AuthContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export const AuthProvider = ({ children }) => {
-  const url="https://webappbackend.vercel.app/";
+  const url="http://localhost:4000";
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState(null);
   const [services, setServices] = useState([]); // Initialized to an empty array
@@ -43,17 +43,16 @@ export const AuthProvider = ({ children }) => {
   // Fetch services data from the database
   const getServices = async () => {
     try {
-      const response = await axios.get(
-        `${url}/api/data/services`,
-      );
+      const response = await axios.get(`${url}/api/data/service`);
       if (response.status === 200) {
         console.log("Services data fetched successfully:", response.data);
         setServices(response.data);
       }
     } catch (error) {
-      console.error(`Services fetch error: ${error}`);
+      console.error(`Services fetch error: ${error.message}`);
     }
   };
+  
 
   useEffect(() => {
     getServices();

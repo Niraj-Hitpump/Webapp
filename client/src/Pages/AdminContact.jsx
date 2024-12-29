@@ -23,11 +23,13 @@ const AdminContact = () => {
 
   const deleteContact = async (id) => {
     try {
-        const response = await axios.delete(`http://localhost:4000/api/admin/contacts/${id}`, {
+        const response = await axios.delete(`${url}/api/admin/contacts/${id}`, {
             headers: {
                 Authorization: authorizationToken,
+                "Content-Type": "application/json",
             },
-        });
+          });
+          console.log(response.data);
         toast.success("Contact deleted successfully");
     } catch (error) {
         toast.error("Error deleting contact: " + error.message);

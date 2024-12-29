@@ -50,20 +50,18 @@ export const deleteUserById = async (req, res, next) => {
 
 export const deleteContactById = async (req, res, next) => {
     try {
-        const id = req.params.id; // Extract ID from request params
-        const deletedContact = await Contact.deleteOne({ _id: id }); // Delete contact by ID
+        const { id } = req.params;
+        const deletedContact = await Contact.findByIdAndDelete(id);
 
-        if (deletedContact.deletedCount === 0) {
-            // No contact was deleted
-            return res.status(404).json({ message: "Contact not found" });
+        if (!deletedContact) {
+            return res.status(404).json({ success: false, message: "Contact not found" });
         }
-
-        // Contact was successfully deleted
         res.status(200).json({
+            success: true,
             message: "Contact deleted successfully",
         });
     } catch (error) {
-        next(error); // Pass error to error-handling middleware
+        next(error);
     }
 };
 // single user logic
